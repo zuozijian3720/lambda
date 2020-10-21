@@ -1,3 +1,5 @@
+import {ComponentType} from "react";
+
 export type LNode<K = string, T = {}> = {
     parentId: string;
     id: string;

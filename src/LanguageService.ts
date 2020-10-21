@@ -120,13 +120,21 @@ export const {
         updateProps: (state, {payload}: PayloadAction<{ id: string; key: string, newValue: any }>) => {
             (state.program[payload.id].props as any)[payload.key] = payload.newValue
         },
+        updateRefs: (state, {payload}: PayloadAction<{ id: string; key: string, newValue: any }>) => {
+            (state.program[payload.id].refs as any)[payload.key] = payload.newValue
+        },
         newInstance: (state, {payload: {type, parentId, key}}: PayloadAction<{
             type: keyof AllNodeMap;
             parentId: string;
             key: string;
         }>) => {
-            console.log('new')
             const id = `${state.id++}`;
+            setTimeout(() => {
+                const ele = document.body.querySelector(`#mps-component-${id} .mps-input`) as HTMLSpanElement
+                if (ele) {
+                    ele.focus()
+                }
+            })
             // @ts-ignore
             state.program[parentId].children[key] = id;
             // @ts-ignore
@@ -139,14 +147,5 @@ export const {
                 props: {}
             }
         },
-        rename: (state, {payload}: PayloadAction<{
-            id: string;
-            newName: string;
-        }>) => {
-            const node = state.program[payload.id];
-            if (node.type === "Identity") {
-                node.props.name = payload.newName
-            }
-        }
     }
 })

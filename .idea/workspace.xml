@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8ee2cd61-c51f-4cc0-b088-4d9af30c55a3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MPS/Component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MPS/Instance.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MPS/index.ts" afterDir="false" />
+    <list default="true" id="8ee2cd61-c51f-4cc0-b088-4d9af30c55a3" name="Default Changelist" comment="lambda">
+      <change afterPath="$PROJECT_DIR$/src/AllNodeComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Completion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Popup.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PropsEditor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RefEditor.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RenderNode.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LambdaType.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/LambdaType.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LanguageService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/LanguageService.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/styles/Home.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/Home.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +63,15 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="es6.move.members.recent.items">
+      <recent name="$PROJECT_DIR$/src/RenderNode.tsx" />
+      <recent name="$PROJECT_DIR$/src/RefEditor.tsx" />
+      <recent name="$PROJECT_DIR$/src/NodeCompletion.tsx" />
+      <recent name="$PROJECT_DIR$/src/Popup.tsx" />
+      <recent name="$PROJECT_DIR$/src/PropsEditor.tsx" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
