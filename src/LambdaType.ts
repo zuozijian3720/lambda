@@ -2,22 +2,33 @@ export type LNode<K = string, T = {}> = {
     parentId: string;
     id: string;
     type: K
+    children: {}
+    refs:{}
+    props:{}
 } & T
 
 export type LNodeMap = {
     Lambda: {
-        argument: string
-        body: string
+        children: {
+            argument: string
+            body: string
+        }
     }
     Apply: {
-        lambda: string
-        argument: string
+        children: {
+            lambda: string
+            argument: string
+        }
     }
     Identity: {
-        name: string
+        props:{
+            name: string
+        }
     }
     Reference: {
-        refId: string
+        refs: {
+            ref: string
+        }
     }
 }
 

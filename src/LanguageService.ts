@@ -1,5 +1,5 @@
 import {effect, ref, Ref, stop, toRaw, UnwrapRef} from "@vue/reactivity";
-import {AllNode, LNodeMap, Program} from "./LambdaType";
+import {AllNode, AllNodeMap, LNodeMap, Program} from "./LambdaType";
 import {useEffect, useState} from "react";
 import {createEntityAdapter, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {createSelector} from "reselect/src";
@@ -64,6 +64,7 @@ class Base<T> {
 }
 
 type LSData = {
+    id: number;
     program: Program
 };
 
@@ -109,11 +110,34 @@ export const {
 } = createSlice({
     name: 'language service',
     initialState: {
+        id: 1,
         program: {}
     } as LSData,
     reducers: {
         loadProgram: (state, action: PayloadAction<Program>) => {
             state.program = action.payload
+        },
+        updateProps: (state, {payload}: PayloadAction<{ id: string; key: string, newValue: any }>) => {
+            (state.program[payload.id].props as any)[payload.key] = payload.newValue
+        },
+        newInstance: (state, {payload: {type, parentId, key}}: PayloadAction<{
+            type: keyof AllNodeMap;
+            parentId: string;
+            key: string;
+        }>) => {
+            console.log('new')
+            const id = `${state.id++}`;
+            // @ts-ignore
+            state.program[parentId].children[key] = id;
+            // @ts-ignore
+            state.program[id] = {
+                id,
+                type,
+                parentId,
+                refs: {},
+                children: {},
+                props: {}
+            }
         },
         rename: (state, {payload}: PayloadAction<{
             id: string;
@@ -121,7 +145,7 @@ export const {
         }>) => {
             const node = state.program[payload.id];
             if (node.type === "Identity") {
-                node.name = payload.newName
+                node.props.name = payload.newName
             }
         }
     }
