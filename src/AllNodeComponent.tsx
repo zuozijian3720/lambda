@@ -9,7 +9,7 @@ export const allNodeComponent: { [K in keyof AllNodeMap]: ComponentType } = {
         return <span>λ.<Child name="argument"/> <Child name="body"/></span>
     },
     Apply: () => {
-        return <div></div>
+        return <span><Child name="lambda"/> <Child name="argument"/></span>
     },
     Identity: () => {
         return <Props name="name"/>

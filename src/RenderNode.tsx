@@ -38,7 +38,20 @@ export const NodeCompletion = ({name}: { name: string }) => {
                     })
                 )
             }
-        },{
+        },
+        {
+            match: 'Apply',
+            node: <div>Apply</div>,
+            onSelect: () => {
+                dispatch(lsAction.newInstance({
+                        type: 'Apply',
+                        key: name,
+                        parentId: node.id,
+                    })
+                )
+            }
+        },
+        {
             match: 'Lambda',
             node: <div>Lambda</div>,
             onSelect: () => {
