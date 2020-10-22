@@ -51,10 +51,10 @@ export const Completion = (
     useKey('Enter', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log('asd')
         list[cursor].onSelect()
         closePopup();
     }, {}, [cursor])
+
     return <div style={{
         minWidth: 300
     }}>
@@ -84,6 +84,7 @@ export const SpanInput = forwardRef<HTMLSpanElement, {
         useEffect(() => {
             setValue(props.value)
         }, [props.value])
+
         return <span
             className="mps-input"
             ref={ref}
@@ -119,6 +120,23 @@ export const AutoCompletion = ({getList, value}: {
     useEffect(() => {
         setRealValue(value || '');
     }, [value])
+    useEffect(() => {
+        if (ref.current) {
+            const listener = (e: KeyboardEvent) => {
+                const ele = e.target as HTMLSpanElement;
+                const innerText = ele.innerText;
+                if (innerText === '' && e.key === ' ') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showCompletion();
+                }
+            };
+            ref.current.addEventListener('keydown', listener)
+            return () => {
+                ref.current?.removeEventListener('keydown', listener)
+            }
+        }
+    }, [])
     return <SpanInput
         ref={ref}
         value={realValue}
